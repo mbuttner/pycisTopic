@@ -281,7 +281,7 @@ def export_pseudobulk_one_sample(
             group_fragments_dict[list(group_fragments_dict.keys())[x]]
             for x in range(len(fragments_df_dict))
         ]
-        group_fragments = group_fragments_list[0].append(group_fragments_list[1:])
+        group_fragments = pd.concat(group_fragments_list)
 
     del group_fragments_dict
     del group_fragments_list
