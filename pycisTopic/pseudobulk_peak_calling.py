@@ -290,6 +290,7 @@ def export_pseudobulk_one_sample(
 
     group_pr = pr.PyRanges(group_fragments)
     if isinstance(bigwig_path, str):
+        log.info("Creating bigwig file for " + str(group))
         bigwig_path_group = os.path.join(bigwig_path, str(group) + ".bw")
         if remove_duplicates:
             group_pr.to_bigwig(
@@ -305,6 +306,7 @@ def export_pseudobulk_one_sample(
                 value_col="Score",
             )
     if isinstance(bed_path, str):
+        log.info("Creating bed file for " + str(group))
         bed_path_group = os.path.join(bed_path, str(group) + ".bed.gz")
         group_pr.to_bed(
             path=bed_path_group, keep=False, compression="infer", chain=False
